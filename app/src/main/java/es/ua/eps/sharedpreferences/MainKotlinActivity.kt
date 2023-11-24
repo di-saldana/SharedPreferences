@@ -39,8 +39,8 @@ class MainKotlinActivity : AppCompatActivity() {
 
         val prefs: SharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val editor = prefs.edit()
-        editor.putString("texto", "TEST")// texto.toString())
-        editor.putInt("tamano", 32) //tamano.toString())
+        editor.putString("texto", texto.toString())
+        editor.putInt("tamano", tamano)
         // editor.commit();  // wait until ends
         editor.apply() // do it in background
     }
