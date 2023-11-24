@@ -18,19 +18,14 @@ class MainKotlinActivity : AppCompatActivity() {
         with(bindings) {
             setContentView(root)
 
+            updateValues()
+
             button.setOnClickListener {
                 saveSharedPreferences()
-                // setCambios()
                 val intent = Intent(this@MainKotlinActivity, DetalleKotlinActivity::class.java)
                 startActivity(intent)
             }
         }
-    }
-    fun encrypt(input: String?): String {
-        return Base64.encodeToString(input?.toByteArray(), Base64.DEFAULT)
-    }
-    fun decrypt(input: String?): String {
-        return String(Base64.decode(input?.toByteArray(), Base64.DEFAULT))
     }
 
     fun saveSharedPreferences() {
@@ -39,18 +34,21 @@ class MainKotlinActivity : AppCompatActivity() {
 
         val prefs: SharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val editor = prefs.edit()
-        editor.putString("texto", texto.toString())
-        editor.putInt("tamano", tamano)
+        editor.putString("texto", Encryption.encrypt(texto.toString())) // Encryption.encrypt(texto.toString()))
+        editor.putInt("tamano", tamano) // Encryption.encrypt(tamano.toString()).toInt())
         // editor.commit();  // wait until ends
         editor.apply() // do it in background
     }
 
-    fun setCambios() {
-        // val texto = getPrefs
-        // val value = getPrefs
+    fun updateValues() {
+        val prefs: SharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val textData: String? = prefs.getString("texto", "Hola Mundo!")
+        val textValue: Int? = prefs.getInt("tamano", 32)
 
-        // bindings.texto.text = "Texto:" + texto
-        // bindings.tamano.text = "Tamaño:" + value
+        if (textValue != null) {
+            bindings.texto.text = "Texto: " + Encryption.decrypt(textData)
+            bindings.tamano.text = "Tamaño: " + textValue.toString() // .decrypt(textValue.toString()).toFloat()
+        }
     }
 
 
