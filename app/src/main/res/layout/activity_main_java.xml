@@ -59,4 +59,12 @@
         android:layout_below="@id/tamano"
         android:layout_marginTop="50dp"/>
 
+    <Button
+        android:id="@+id/buttonKotlin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kotlin"
+        android:layout_below="@id/buttonCerrar"
+        android:layout_marginTop="50dp"/>
+
 </RelativeLayout>
