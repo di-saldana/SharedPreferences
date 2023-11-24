@@ -4,20 +4,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
-import es.ua.eps.sharedpreferences.databinding.ActivityMainBinding
+import es.ua.eps.sharedpreferences.databinding.ActivityMainKotlinBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var bindings: ActivityMainBinding
+class MainKotlinActivity : AppCompatActivity() {
+    private lateinit var bindings: ActivityMainKotlinBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindings = ActivityMainBinding.inflate(layoutInflater)
+        bindings = ActivityMainKotlinBinding.inflate(layoutInflater)
 
         with(bindings) {
             setContentView(root)
 
             button.setOnClickListener {
-                val intent = Intent(this@MainActivity, DetalleActivity::class.java)
+                val intent = Intent(this@MainKotlinActivity, DetalleKotlinActivity::class.java)
                 startActivity(intent)
             }
         }
