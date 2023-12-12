@@ -32,8 +32,8 @@ class DetalleKotlinActivity : AppCompatActivity() {
         val textValue: Int? = prefs.getInt("tamano", 32)
 
         if (textValue != null) {
-            bindings.texto.text = Encryption.decrypt(textData)
-            bindings.texto.textSize = textValue.toFloat() // .decrypt(textValue.toString()).toFloat()
+            bindings.texto.text = UtilsKotlin.decrypt(textData)
+            bindings.texto.textSize = textValue.toFloat()
         }
     }
 }
