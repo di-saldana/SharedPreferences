@@ -13,12 +13,20 @@
         android:layout_margin="30dp"
         android:hint="Introduce un texto" />
 
+    <TextView
+        android:id="@+id/tamanoSeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Tamaño (1/50)"
+        android:layout_below="@id/editText"/>
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_below="@id/editText"
+        android:layout_below="@id/tamanoSeekBar"
         android:layout_margin="30dp"
         android:min="1"
         android:max="50"/>

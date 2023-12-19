@@ -19,6 +19,7 @@ public class MainJavaActivity extends AppCompatActivity {
 
     private ActivityMainJavaBinding viewBinding;
     private EditText editText;
+    private TextView tamanoSeekBar;
     private SeekBar seekBar;
     private TextView textoView;
     private TextView tamanoView;
@@ -33,6 +34,7 @@ public class MainJavaActivity extends AppCompatActivity {
         setContentView(viewBinding.getRoot());
 
         editText = viewBinding.editText;
+        tamanoSeekBar = viewBinding.tamanoSeekBar;
         seekBar = viewBinding.seekBar;
         textoView = viewBinding.texto;
         tamanoView = viewBinding.tamano;
@@ -41,6 +43,22 @@ public class MainJavaActivity extends AppCompatActivity {
         buttonKotlin = viewBinding.buttonKotlin;
 
         updateValues();
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tamanoSeekBar.setText("Tamaño (" + progress + "/50)");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

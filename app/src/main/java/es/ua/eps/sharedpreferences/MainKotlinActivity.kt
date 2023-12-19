@@ -3,8 +3,10 @@ package es.ua.eps.sharedpreferences
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.appcompat.app.AppCompatActivity
 import es.ua.eps.sharedpreferences.databinding.ActivityMainKotlinBinding
 
 class MainKotlinActivity : AppCompatActivity() {
@@ -18,6 +20,15 @@ class MainKotlinActivity : AppCompatActivity() {
             setContentView(root)
 
             updateValues()
+
+            seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                    tamanoSeekBar.text = "Tamaño ($progress/50)"
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar) {}
+                override fun onStopTrackingTouch(seekBar: SeekBar) {}
+            })
 
             button.setOnClickListener {
                 saveSharedPreferences()
