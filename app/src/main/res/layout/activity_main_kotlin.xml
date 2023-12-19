@@ -9,32 +9,41 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
         android:hint="Introduce un texto" />
 
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_below="@id/editText"
-        android:min="0"
-        android:max="50"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="1"
+        android:max="50"
+        android:min="1" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aplicar y Visualizar"
-        android:layout_marginTop="100dp"/>
-    
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/seekBar"
+        android:text="Aplicar y Visualizar" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Valores actuales de la aplicación:"
         android:layout_below="@id/button"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/texto"
@@ -42,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="Texto: Hola Mundo!"
         android:layout_below="@id/textView"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -50,22 +60,35 @@
         android:layout_height="wrap_content"
         android:text="Tamaño: 32"
         android:layout_below="@id/texto"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/buttonCerrar"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerrar"
-        android:layout_below="@id/tamano"
-        android:layout_marginTop="50dp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttonJava"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Java"
-        android:layout_below="@id/buttonCerrar"
-        android:layout_marginTop="50dp"/>
+        <Button
+            android:id="@+id/buttonCerrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tamano"
+            android:layout_gravity="center_horizontal"
+            android:text="Cerrar" />
+
+        <ImageButton
+            android:id="@+id/buttonJava"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonCerrar"
+            android:layout_gravity="end"
+            android:layout_marginLeft="20dp"
+            android:contentDescription="Java"
+            android:src="@drawable/java" />
+
+    </LinearLayout>
 
 </RelativeLayout>

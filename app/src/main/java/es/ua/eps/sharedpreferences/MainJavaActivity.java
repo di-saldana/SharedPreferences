@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -23,7 +24,7 @@ public class MainJavaActivity extends AppCompatActivity {
     private TextView tamanoView;
     private Button button;
     private Button buttonCerrar;
-    private Button buttonKotlin;
+    private ImageButton buttonKotlin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
